@@ -97,12 +97,28 @@
             color: #f50057;
         }
 
-        /* Mobile responsiveness for the button */
+        /* Top-left button positioning */
+        .top-button {
+            position: fixed;
+            top: 20px; /* Adjust position from the top */
+            left: 20px; /* Adjust position from the left */
+            z-index: 9999; /* Make sure it's on top */
+            padding: 10px 20px;
+            background-color: pink;
+            color: #D5006D;
+            border: 4px inset #D5006D;
+            cursor: pointer;
+        }
+
+        .top-button:hover {
+            background-color: pink;
+        }
+
+        /* Mobile responsiveness */
         @media screen and (max-width: 768px) {
             .top-button {
-                top: 70%;
-                left: 50%;
-                transform: translateX(-50%);
+                top: 20px;
+                left: 20px; /* Keep button at the top left corner on mobile */
             }
         }
     </style>
@@ -114,6 +130,7 @@
 
     <div class="heart">💖</div>
 
+    <!-- Go Ahead Button -->
     <button class="top-button" onclick="window.location.href='gallerypage4.html'">Go Ahead</button>
 
     <div class="footer">Sending you all the love in the world! my Love Anu 😘🥰💖</div>
@@ -129,25 +146,5 @@
     <div class="floating-heart" style="left: 40%; animation-delay: 5s;">💖</div>
     <div class="floating-heart" style="left: 60%; animation-delay: 7s;">💖</div>
     <div class="floating-heart" style="left: 80%; animation-delay: 9s;">💖</div>
-    
-    <style>
-        .top-button {
-            position: fixed; /* Keep the button fixed on the screen */
-            top: 80%; /* Move the button lower */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999; /* Make sure it's on top */
-            padding: 10px 20px;
-            background-color: pink;
-            color: #D5006D;
-            border: 4px inset #D5006D;
-            cursor: pointer;
-        }
-
-        .top-button:hover {
-            background-color: pink;
-        }
-    </style>
 </body>
 </html>
-
