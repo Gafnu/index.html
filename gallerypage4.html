@@ -3,59 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Theme Gallery</title>
+    <title>Love-Themed Comment Page</title>
     <style>
         body {
+            font-family: 'Georgia', cursive;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            perspective: 1000px;
-            overflow-x: hidden;
-        }
-
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 50px auto;
-            max-width: 90%;
-        }
-
-        .image-container {
+            color: #333;
             position: relative;
-            margin: 15px;
-            transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
+            word-wrap: break-word; /* Prevent long words from breaking layout */
+        }
+
+        h1 {
             text-align: center;
+            color: #d9534f;
+            font-size: 28px;
+            margin-top: 20px;
+            padding: 0 10px;
         }
 
-        .image-container:hover {
-            animation-play-state: paused;
-        }
-
-        .image-container img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .image-container img:hover {
-            transform: scale(1.1) rotateY(10deg) rotateX(10deg);
+        .comment-box {
+            margin: 20px 0;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #d9534f;
+            border-radius: 10px;
         }
 
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background: #ffe4e1;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border-left: 5px solid #d9534f;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Heart Animation */
         .hearts {
             position: fixed;
             top: 0;
@@ -68,110 +95,77 @@
 
         .hearts div {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background: red;
-            clip-path: polygon(50% 0%, 61% 16%, 98% 16%, 70% 38%, 82% 73%, 50% 58%, 18% 73%, 30% 38%, 2% 16%, 39% 16%);
+            clip-path: polygon(50% 0%, 61% 15%, 98% 15%, 68% 38%, 82% 72%, 50% 58%, 18% 72%, 32% 38%, 2% 15%, 39% 15%);
             opacity: 0.8;
-            animation: fall 5s linear infinite;
+            animation: float 6s linear infinite;
         }
 
-        .hearts div:nth-child(odd) {
+        .hearts div:nth-child(even) {
             background: pink;
         }
 
-        @keyframes fall {
-            from {
-                transform: translateY(-100vh) translateX(0) scale(1);
-            }
-            to {
-                transform: translateY(100vh) translateX(50px) scale(0.5);
-            }
-        }
-
-        .hearts div:nth-child(1) {
-            left: 10%;
-            animation-duration: 6s;
-        }
-
-        .hearts div:nth-child(2) {
-            left: 30%;
-            animation-duration: 4s;
-        }
-
-        .hearts div:nth-child(3) {
-            left: 50%;
-            animation-duration: 5s;
-        }
-
-        .hearts div:nth-child(4) {
-            left: 70%;
-            animation-duration: 7s;
-        }
-
-        .hearts div:nth-child(5) {
-            left: 90%;
-            animation-duration: 3s;
-        }
-
-        .lyrics {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Brush Script MT', cursive;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            font-weight: bold;
-            font-style: italic;
-            line-height: 1.5;
-            width: 50%;
-            height: 150px;
-            overflow: hidden;
-        }
-
-        .lyrics span {
-            display: inline-block;
-            font-size: 24px;
-            animation: scrollText 10s linear infinite;
-        }
-
-        @keyframes scrollText {
+        @keyframes float {
             0% {
-                transform: translateY(100%);
+                transform: translateY(100vh) translateX(0) scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.5;
             }
             100% {
-                transform: translateY(-100%);
+                transform: translateY(-100vh) translateX(50px) scale(1);
+                opacity: 0.8;
             }
         }
 
-        .audio-controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 10px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+        /* Image Container Styles */
+        .image-container {
+            display: flex; /* Arrange images in a row */
+            justify-content: center; /* Center images horizontally */
+            gap: 15px; /* Space between images */
+            margin-top: 20px;
         }
 
-        .audio-controls input[type="range"] {
-            width: 150px;
+        .image-container img {
+            width: 80px; /* Fixed width for the images */
+            height: 80px; /* Fixed height for the images */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+                margin-top: 10px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+
+            .image-container img {
+                width: 60px; /* Adjust image size for smaller screens */
+                height: 60px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Audio will autoplay and loop continuously -->
-    <audio id="background-music" autoplay loop>
-        <source src="criminal.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <div class="hearts">
         <div></div>
         <div></div>
@@ -180,122 +174,80 @@
         <div></div>
     </div>
 
-    <div class="gallery">
-        <div class="image-container">
-            <img src="IMG_20240724_153821_152.jpg" alt="Image 1">
+    <div class="container">
+        <h1>Share Your Sweet Words</h1>
+        <div class="comment-box">
+            <textarea id="comment-input" placeholder="Write your heartfelt comment here..."></textarea>
+            <button onclick="addComment()">Post Comment</button>
         </div>
+        
+        <!-- Image Container -->
         <div class="image-container">
-            <img src="IMG_20240918_200604_829.jpg" alt="Image 2">
+            <img src="https://via.placeholder.com/80" alt="Image 1">
+            <img src="https://via.placeholder.com/80" alt="Image 2">
+            <img src="https://via.placeholder.com/80" alt="Image 3">
+            <img src="https://via.placeholder.com/80" alt="Image 4">
         </div>
-        <div class="image-container">
-            <img src="IMG_20240918_200717_746.jpg" alt="Image 3">
-        </div>
-        <div class="image-container">
-            <img src="IMG_20240918_200908_325.jpg" alt="Image 4">
-        </div>
-        <div class="image-container">
-            <img src="IMG_20240918_200910_856.jpg" alt="Image 5">
-        </div>
-    </div>
 
-    <div class="gallery">
-        <div class="image-container">
-            <img src="IMG_20240918_200910_856.jpg" alt="Image 6">
+        <div class="comments" id="comments-section">
+            <!-- Comments will appear here -->
         </div>
-        <div class="image-container">
-            <img src="Snapchat-1404387093.jpg" alt="Image 7">
-        </div>
-        <div class="image-container">
-            <img src="Snapchat-1451978052.jpg" alt="Image 8">
-        </div>
-        <div class="image-container">
-            <img src="Snapchat-74565769.jpg" alt="Image 9">
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/250" alt="Image 10">
-             <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffe0e0;
-            margin: 0;
-    <button class="love-button" onclick="window.location.href='commentpage5.html'">Talk to me my Love</button>
-</body>
-        </div>
-       
-    <div class="lyrics">
-        <span>
-            "Ay, bring it on, bring it on, bring it on<br>
-            It's the night, it's the night, it's the night<br>
-            I was born to run<br>
-            Ay, I'm a criminal<br>
-            And I can't make it right<br>
-            Just make me look good<br>
-            Just do me right<br>
-            I'm the one you love to hate<br>
-            But you can't make me wrong<br>
-            No, you can't make me fake<br>
-            And I don't play along<br>
-            Bring it on, bring it on, bring it on<br>
-            It's the life, it's the life, it's the life<br>
-            I'm a criminal<br>
-            Ay, I was born this way<br>
-            And the road I take<br>
-            I will walk alone<br>
-            For a love that's fake<br>
-            Bring it on, bring it on, bring it on<br>
-            It's the night, it's the night, it's the night<br>
-            I was born to run<br>
-            Ay, I'm a criminal"
-        </span>
-    </div>
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-    <!-- Audio Controls Section (Only Volume Control) -->
-    <div class="audio-controls">
-        <label for="volume-control">Volume</label>
-        <input type="range" id="volume-control" value="100" max="100" onchange="setVolume()">
-    </div>
-  <div class="lyrics">
-        <span>
-            "Ay, bring it on, bring it on, bring it on<br>
-            It's the night, it's the night, it's the night<br>
-            I was born to run<br>
-            Ay, I'm a criminal<br>
-            And I can't make it right<br>
-            Just make me look good<br>
-            Just do me right<br>
-            I'm the one you love to hate<br>
-            But you can't make me wrong<br>
-            No, you can't make me fake<br>
-            And I don't play along<br>
-            Bring it on, bring it on, bring it on<br>
-            It's the life, it's the life, it's the life<br>
-            I'm a criminal<br>
-            Ay, I was born this way<br>
-            And the road I take<br>
-            I will walk alone<br>
-            For a love that's fake<br>
-            Bring it on, bring it on, bring it on<br>
-            It's the night, it's the night, it's the night<br>
-            I was born to run<br>
-            Ay, I'm a criminal"
-        </span>
     </div>
 
     <script>
-        // Function to control the volume
-        function setVolume() {
-            var audio = document.getElementById('background-music');
-            var volume = document.getElementById('volume-control').value;
-            audio.volume = volume / 100;
+        // Load comments from localStorage
+        window.onload = function() {
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.forEach(comment => displayComment(comment.text, comment.timestamp));
+        };
+
+        function addComment() {
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+
+            // Validate input
+            if (commentText === "") {
+                alert("Please enter a comment!");
+                return;
+            }
+
+            // Get the current timestamp
+            const timestamp = new Date().toLocaleString();
+
+            // Save the comment to localStorage
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.push({ text: commentText, timestamp });
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+
+            // Display the new comment
+            displayComment(commentText, timestamp);
+
+            // Clear the text area
+            commentInput.value = '';
+        }
+
+        function displayComment(text, timestamp) {
+            const commentsSection = document.getElementById('comments-section');
+
+            // Create comment div
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+
+            // Create text node
+            const commentText = document.createElement('p');
+            commentText.textContent = text;
+
+            // Create timestamp node
+            const commentTimestamp = document.createElement('div');
+            commentTimestamp.className = 'timestamp';
+            commentTimestamp.textContent = `Posted on: ${timestamp}`;
+
+            // Append text and timestamp to comment div
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentTimestamp);
+
+            // Append comment div to comments section
+            commentsSection.appendChild(commentDiv);
         }
     </script>
 </body>
