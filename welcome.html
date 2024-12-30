@@ -96,6 +96,15 @@
             font-size: 18px;
             color: #f50057;
         }
+
+        /* Mobile responsiveness for the button */
+        @media screen and (max-width: 768px) {
+            .top-button {
+                top: 70%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -107,24 +116,6 @@
 
     <button class="top-button" onclick="window.location.href='gallerypage4.html'">Go Ahead</button>
 
-<style>
-    .top-button {
-        position: fixed; /* Keep the button fixed on the screen */
-        top: 400px;
-        left: 600px;
-        z-index: 9999; /* Make sure it's on top */
-        padding: 10px 20px;
-        background-color: pink;
-        color: #D5006D;
-        border: 4px inset  #D5006D;
-        cursor: pointer;
-    }
-
-    .top-button:hover {
-        background-color: pink;
-    }
-</style>
-
     <div class="footer">Sending you all the love in the world! my Love Anu 😘🥰💖</div>
 
     <!-- Floating hearts in the background -->
@@ -132,10 +123,31 @@
     <div class="floating-heart" style="left: 30%; animation-delay: 2s;">💖</div>
     <div class="floating-heart" style="left: 50%; animation-delay: 4s;">💖</div>
     <div class="floating-heart" style="left: 70%; animation-delay: 6s;">💖</div>
-    <div class="floating-heart" style="left: 90%; animation-delay: 8s;">💖</div><div class="floating-heart" style="left: 100%; animation-delay: 1s;">💖</div>
+    <div class="floating-heart" style="left: 90%; animation-delay: 8s;">💖</div>
+    <div class="floating-heart" style="left: 100%; animation-delay: 1s;">💖</div>
     <div class="floating-heart" style="left: 20%; animation-delay: 3s;">💖</div>
     <div class="floating-heart" style="left: 40%; animation-delay: 5s;">💖</div>
     <div class="floating-heart" style="left: 60%; animation-delay: 7s;">💖</div>
     <div class="floating-heart" style="left: 80%; animation-delay: 9s;">💖</div>
+    
+    <style>
+        .top-button {
+            position: fixed; /* Keep the button fixed on the screen */
+            top: 80%; /* Move the button lower */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999; /* Make sure it's on top */
+            padding: 10px 20px;
+            background-color: pink;
+            color: #D5006D;
+            border: 4px inset #D5006D;
+            cursor: pointer;
+        }
+
+        .top-button:hover {
+            background-color: pink;
+        }
+    </style>
 </body>
 </html>
+
