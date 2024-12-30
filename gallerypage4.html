@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Theme Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            perspective: 1000px;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 90%;
+        }
+
+        .image-container {
+            position: relative;
+            margin: 15px;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            text-align: center;
+        }
+
+        .image-container:hover {
+            animation-play-state: paused;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1) rotateY(10deg) rotateX(10deg);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hearts div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            clip-path: polygon(50% 0%, 61% 16%, 98% 16%, 70% 38%, 82% 73%, 50% 58%, 18% 73%, 30% 38%, 2% 16%, 39% 16%);
+            opacity: 0.8;
+            animation: fall 5s linear infinite;
+        }
+
+        .hearts div:nth-child(odd) {
+            background: pink;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) translateX(0) scale(1);
+            }
+            to {
+                transform: translateY(100vh) translateX(50px) scale(0.5);
+            }
+        }
+
+        .hearts div:nth-child(1) {
+            left: 10%;
+            animation-duration: 6s;
+        }
+
+        .hearts div:nth-child(2) {
+            left: 30%;
+            animation-duration: 4s;
+        }
+
+        .hearts div:nth-child(3) {
+            left: 50%;
+            animation-duration: 5s;
+        }
+
+        .hearts div:nth-child(4) {
+            left: 70%;
+            animation-duration: 7s;
+        }
+
+        .hearts div:nth-child(5) {
+            left: 90%;
+            animation-duration: 3s;
+        }
+
+        .lyrics {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Brush Script MT', cursive;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 1.5;
+            width: 50%;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .lyrics span {
+            display: inline-block;
+            font-size: 24px;
+            animation: scrollText 10s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .audio-controls input[type="range"] {
+            width: 150px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Audio will autoplay and loop continuously -->
+    <audio id="background-music" autoplay loop>
+        <source src="criminal.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="hearts">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="gallery">
+        <div class="image-container">
+            <img src="F:\gafnu07\Photos-001.png" alt="Image 1">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 2">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 3">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 4">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 5">
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 6">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 7">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 8">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 9">
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/250" alt="Image 10">
+        </div>
+    </div>
+
+    <div class="lyrics">
+        <span>
+            "Ay, bring it on, bring it on, bring it on<br>
+            It's the night, it's the night, it's the night<br>
+            I was born to run<br>
+            Ay, I'm a criminal<br>
+            And I can't make it right<br>
+            Just make me look good<br>
+            Just do me right<br>
+            I'm the one you love to hate<br>
+            But you can't make me wrong<br>
+            No, you can't make me fake<br>
+            And I don't play along<br>
+            Bring it on, bring it on, bring it on<br>
+            It's the life, it's the life, it's the life<br>
+            I'm a criminal<br>
+            Ay, I was born this way<br>
+            And the road I take<br>
+            I will walk alone<br>
+            For a love that's fake<br>
+            Bring it on, bring it on, bring it on<br>
+            It's the night, it's the night, it's the night<br>
+            I was born to run<br>
+            Ay, I'm a criminal"
+        </span>
+    </div>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+    <!-- Audio Controls Section (Only Volume Control) -->
+    <div class="audio-controls">
+        <label for="volume-control">Volume</label>
+        <input type="range" id="volume-control" value="100" max="100" onchange="setVolume()">
+    </div>
+  <div class="lyrics">
+        <span>
+            "Ay, bring it on, bring it on, bring it on<br>
+            It's the night, it's the night, it's the night<br>
+            I was born to run<br>
+            Ay, I'm a criminal<br>
+            And I can't make it right<br>
+            Just make me look good<br>
+            Just do me right<br>
+            I'm the one you love to hate<br>
+            But you can't make me wrong<br>
+            No, you can't make me fake<br>
+            And I don't play along<br>
+            Bring it on, bring it on, bring it on<br>
+            It's the life, it's the life, it's the life<br>
+            I'm a criminal<br>
+            Ay, I was born this way<br>
+            And the road I take<br>
+            I will walk alone<br>
+            For a love that's fake<br>
+            Bring it on, bring it on, bring it on<br>
+            It's the night, it's the night, it's the night<br>
+            I was born to run<br>
+            Ay, I'm a criminal"
+        </span>
+    </div>
+
+    <script>
+        // Function to control the volume
+        function setVolume() {
+            var audio = document.getElementById('background-music');
+            var volume = document.getElementById('volume-control').value;
+            audio.volume = volume / 100;
+        }
+    </script>
+</body>
+</html>
