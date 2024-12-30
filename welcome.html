@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Love Theme</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec; /* Light pink background */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden; /* Hide overflow for floating hearts */
+            position: relative;
+        }
+
+        .header {
+            margin-top: 50px;
+            font-size: 36px;
+            color: #e91e63; /* Love pink */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .sub-header {
+            font-size: 24px;
+            color: #f50057;
+            margin: 10px;
+        }
+
+        .heart-button {
+            padding: 15px 40px;
+            font-size: 20px;
+            background-color: #ff4081; /* Love pink */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .heart-button:hover {
+            background-color: #d81b60; /* Darker pink on hover */
+            transform: scale(1.1); /* Slightly enlarges the button */
+        }
+
+        .heart {
+            font-size: 100px;
+            color: #ff4081; /* Love pink */
+            margin-top: 50px;
+            animation: heartBeat 1.5s infinite ease-in-out;
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Floating hearts animation */
+        .floating-heart {
+            position: absolute;
+            font-size: 40px;
+            color: #ff4081;
+            opacity: 0;
+            animation: floatHearts 8s ease-in-out infinite;
+        }
+
+        /* Keyframes for floating hearts */
+        @keyframes floatHearts {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50vh) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 18px;
+            color: #f50057;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Welcome to Love!</div>
+    <div class="sub-header">Feel the love and magic</div>
+
+    <div class="heart">💖</div>
+
+    <button class="top-button" onclick="window.location.href='gallerypage4.html'">Go Ahead</button>
+
+<style>
+    .top-button {
+        position: fixed; /* Keep the button fixed on the screen */
+        top: 400px;
+        left: 600px;
+        z-index: 9999; /* Make sure it's on top */
+        padding: 10px 20px;
+        background-color: pink;
+        color: #D5006D;
+        border: 4px inset  #D5006D;
+        cursor: pointer;
+    }
+
+    .top-button:hover {
+        background-color: pink;
+    }
+</style>
+
+    <div class="footer">Sending you all the love in the world! 💖</div>
+
+    <!-- Floating hearts in the background -->
+    <div class="floating-heart" style="left: 10%; animation-delay: 0s;">💖</div>
+    <div class="floating-heart" style="left: 30%; animation-delay: 2s;">💖</div>
+    <div class="floating-heart" style="left: 50%; animation-delay: 4s;">💖</div>
+    <div class="floating-heart" style="left: 70%; animation-delay: 6s;">💖</div>
+    <div class="floating-heart" style="left: 90%; animation-delay: 8s;">💖</div><div class="floating-heart" style="left: 100%; animation-delay: 1s;">💖</div>
+    <div class="floating-heart" style="left: 20%; animation-delay: 3s;">💖</div>
+    <div class="floating-heart" style="left: 40%; animation-delay: 5s;">💖</div>
+    <div class="floating-heart" style="left: 60%; animation-delay: 7s;">💖</div>
+    <div class="floating-heart" style="left: 80%; animation-delay: 9s;">💖</div>
+</body>
+</html>
